@@ -1,18 +1,12 @@
 from torch.utils.data import DataLoader
 from torchvision import transforms
-from progressBar import printProgressBar
 
 #import JoseLoader
 import medicalDataLoader
 import argparse
 from utils import *
 
-from UNet_Base import *
-from network import *
-import random
-import torchvision.transforms.functional as TF
-from random import random, randint
-from PIL import Image, ImageOps
+from AttU_Net import *
 
 
 
