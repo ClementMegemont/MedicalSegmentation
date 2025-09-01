@@ -13,7 +13,27 @@ The goal of this work is to automatically segment these regions of interest, whi
 
 Below is an example of the dataset, including MRI images alongside their corresponding ground-truth annotations.
 
-<p float="left">
-  <img src="images//patient006_01_5.png" width="300" />
-  <img src="images/legend1.png" width="300" />
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="images//patient006_01_5.png" width="300" /><br>
+      MRI Image
+    </td>
+    <td align="center">
+      <img src="images/legend1.png" width="300" /><br>
+      Ground Truth
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="images//patient068_01_2.png" width="300" /><br>
+      MRI Image
+    </td>
+    <td align="center">
+      <img src="images/legend2.png" width="300" /><br>
+      Ground Truth
+    </td>
+  </tr>
+</table>
+
+
