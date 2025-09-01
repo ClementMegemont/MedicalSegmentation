@@ -14,6 +14,6 @@ The goal of this work is to automatically segment these regions of interest, whi
 Below is an example of the dataset, including MRI images alongside their corresponding ground-truth annotations.
 
 <p float="left">
-  <img src="image1.png" width="300" />
-  <img src="image2.png" width="300" />
+  <img src="images//patient006_01_5.png" width="300" />
+  <img src="images/legend1.png" width="300" />
 </p>
