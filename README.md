@@ -36,6 +36,8 @@ Below is an example of the dataset, including MRI images alongside their corresp
   </tr>
 </table>
 
+The dataset includes 204 labeled images and 1004 unlabeled images. For this project, only the labeled images are used, focusing on supervised learning. To expand the dataset, data augmentation was applied by performing horizontal and vertical flips, increasing the total number of images from 204 to 612.
+
 ## Model Architecture
 
 The model used is an enhanced version of the U-Net, called Attention U-Net, which is widely applied in medical image segmentation.
@@ -77,3 +79,16 @@ These gates filter the encoder features before passing them to the decoder.
 They allow the model to focus on anatomically relevant regions (e.g., ventricles, myocardium) while ignoring irrelevant background.
 This leads to sharper boundaries and improved robustness in medical image segmentation.
 
+## Results
+
+The performance of the model is evaluated using the Dice score, Average Surface Distance (ASD), and Hausdorff Distance (HD), providing a comprehensive assessment of the segmentation accuracy.
+
+Here is a table summarizing the results obtained for each metric and each class.
+
+| Metric | RV    |  Myo  |  LV  | Mean |
+|:------:|:-----:|:-----:|:----:|:----:|
+| Dice   | 0.59  | 0.78  | 0.86 | 0.74 |
+| HD     | 13.92 | 5.97  | 4.67 | 8.19 |
+| ASD    | 3.16  | 1.76  | 1.65 | 2.19 |
+
+It can be observed that the model performs worse at segmenting the right ventricle compared to the left ventricle or the myocardium. This is because some images in the dataset contain a left ventricle and myocardium but no right ventricle, as illustrated in the example below. As a result, it is more difficult for the model to learn to recognize a structure that is less frequently present, which explains the difference in performance.
