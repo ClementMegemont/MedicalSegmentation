@@ -16,7 +16,7 @@ Below is an example of the dataset, including MRI images alongside their corresp
 <table>
   <tr>
     <td align="center">
-      <img src="images//patient006_01_5.png" width="300" /><br>
+      <img src="images/patient006_01_5.png" width="300" /><br>
       MRI Image
     </td>
     <td align="center">
@@ -26,7 +26,7 @@ Below is an example of the dataset, including MRI images alongside their corresp
   </tr>
   <tr>
     <td align="center">
-      <img src="images//patient068_01_2.png" width="300" /><br>
+      <img src="images/patient068_01_2.png" width="300" /><br>
       MRI Image
     </td>
     <td align="center">
@@ -92,3 +92,62 @@ Here is a table summarizing the results obtained for each metric and each class.
 | ASD    | 3.16  | 1.76  | 1.65 | 2.19 |
 
 It can be observed that the model performs worse at segmenting the right ventricle compared to the left ventricle or the myocardium. This is because some images in the dataset contain a left ventricle and myocardium but no right ventricle, as illustrated in the example below. As a result, it is more difficult for the model to learn to recognize a structure that is less frequently present, which explains the difference in performance.
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="images/result2.png" width="300" /><br>
+      MRI Image
+    </td>
+    <td align="center">
+      <img src="images/result1.png" width="300" /><br>
+      Ground Truth
+    </td>
+  </tr>
+</table>
+<br>
+
+Another challenging case for the model occurs when there is nothing to detect (none of the three classes are visible in the image) or when the target regions are very small. In the case where there is nothing to detect, the model may predict regions that do not actually exist, and when the regions are too small, it often fails to detect them. Two examples illustrating these cases are shown below.
+
+<p align="center" style="margin:0; padding:0;">
+  <img src="images/0.png" width="768" style="margin:0; display:block;"/>
+</p>
+<p align="center" style="margin:0; padding:0; font-style:italic; font-size:14px;">
+  Left: MRI Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Middle: Ground Truth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Right: Prediction
+</p>
+<p align="center">
+  <b>Case where there is nothing to detect</b>
+</p>
+<br>
+
+<p align="center" style="margin:0; padding:0;">
+  <img src="images/47.png" width="768" style="margin:0; display:block;"/>
+</p>
+<p align="center" style="margin:0; padding:0; font-style:italic; font-size:14px;">
+  Left: MRI Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Middle: Ground Truth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Right: Prediction
+</p>
+<p align="center">
+  <b>Case where regions to detect are small</b>
+</p>
+<br>
+
+As additional examples, here are two more qualitative cases illustrating the model’s performance through visual inspection, rather than quantitative metrics.
+
+<p align="center" style="margin:0; padding:0;">
+  <img src="images/22.png" width="768" style="margin:0; display:block;"/>
+</p>
+<p align="center" style="margin:0; padding:0; font-style:italic; font-size:14px;">
+  Left: MRI Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Middle: Ground Truth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Right: Prediction
+</p>
+<br>
+
+<p align="center" style="margin:0; padding:0;">
+  <img src="images/56.png" width="768" style="margin:0; display:block;"/>
+</p>
+<p align="center" style="margin:0; padding:0; font-style:italic; font-size:14px;">
+  Left: MRI Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Middle: Ground Truth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Right: Prediction
+</p>
+
+## Conclusion 
+
+In conclusion, this project demonstrates that the Attention U-Net model is able to accurately segment most of the cardiac structures in the dataset. Both quantitative metrics and qualitative examples confirm its performance. However, the model is less precise for rare cases or very small structures, such as precised before. Future improvements could include expanding the dataset, by applying more advanced data augmentation techniques, or exploring more sophisticated architectures to enhance segmentation accuracy.
